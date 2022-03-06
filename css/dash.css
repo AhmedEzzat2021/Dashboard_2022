@@ -1,0 +1,587 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+/*-- Variables --*/
+:root{
+--primary-color: #7380ec;
+--danger-color: #ff7782;
+--success-color:#41f1b6;
+--color-warning: #ffbb55;
+--color-white: #FFF;
+--color-info-dark: #7d8da1;
+--color-info-light: #dce1eb;
+--color-dark: #363949;
+--color-light: rgba(132,139,200,.18);
+--color-primary-variant:#111e88;
+--color-dark-variant:#677483;
+--color-background: #f6f6f9;
+
+--card-border-radius: 2rem;
+--border-radius-1: .4rem;
+--border-radius-2: .8rem;
+--border-radius-3: 1.2rem;
+
+--card-padding: 1.8rem;
+--padding-1: 1.2rem;
+--box-shadow: 0 2rem 3rem var(--color-light);
+}
+/*----- Dark THEME VARIABLE -----*/
+.dark-theme-variables{
+    --color-background: #181a1e;
+    --color-white: #202528;
+    --color-dark: #edeffd;
+    --color-dark-variant:#a3bdcc;
+    --color-light: rgba(0,0,0,.4);
+    --box-shadow: 0 2rem 3rem var(--color-light) inset;
+}
+*{
+    margin: 0;
+    padding: 0;
+    outline: none;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+html{
+    font-size: 14px;
+}
+body{
+    font-family: 'Poppins', sans-serif;
+    width: 100%;
+    height: 100vh;
+    font-size: .88rem;
+    background-color: var(--color-background) ;
+    overflow: none;
+    user-select: none;
+    color: var(--color-dark);
+}
+.container{
+    display: grid;
+    gap: 1.8rem;
+    grid-template-columns: 13rem 1fr 23rem;
+    width: 96%;
+    margin: 0 auto;
+}
+
+a{
+    color: var(--color-dark); 
+}
+img{
+    display: block;
+    width: 100%;
+}
+h1{
+    font-weight: 800;
+    font-size: 1.8rem;
+}
+h2{
+    font-size: 1.4rem;
+}
+h3{
+    font-size: .87rem;
+}
+h4{
+    font-size: .8rem;
+}
+h5{
+    font-size: .77rem;
+}
+small{
+    font-size: .75rem;
+}
+.profile-photo{
+    width: 2.8rem;
+    height: 2.8rem;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.text-muted{
+    color: var(--color-info-dark);
+}
+p{
+    color: var(--color-dark-variant);
+}
+b{
+    color: var(--color-dark);
+}
+.primary{
+    color: var(--primary-color);
+}
+.danger{
+    color: var(--danger-color);
+}
+.success{
+    color: var(--success-color);
+}
+.warning{
+    color: var(--color-warning);
+}
+
+/*==== aside ====*/
+aside{
+    height: 100vh;
+}
+aside .top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1.4rem;
+}
+aside .top .logo{
+    display: flex;
+    gap: 0.8rem;
+    align-items: center;
+}
+aside .top .logo .img___logo{
+    width: 3rem;
+}
+aside .top .logo img{
+    width: 100%;
+}
+aside .top .logo .danger-c{
+    color: var(--danger-color);
+}
+.close{
+    display: none;
+}
+/*========= SideBar =========*/
+aside .side__bar{
+    height: 86vh;
+    position: relative;
+    top: 4rem;
+    display: flex;
+    flex-direction: column;
+}
+aside h3{
+    font-weight: 500;
+}
+aside .side__bar a{
+    display: flex;
+    align-items: center;
+    margin-left: 2rem;
+    gap: 1rem;
+    height: 3.7rem;
+    position: relative;
+    transition: all .3s ease;
+    color: var(--color-info-dark);
+}
+aside .side__bar a span{
+    font-size: 1.6rem;
+    transition: all .3s ease;
+}
+aside .side__bar .log__out{
+    position: absolute;
+    bottom: 2rem;
+    width: 100%;
+}
+aside .side__bar a.active{
+    background-color: var(--color-light);
+    color: var(--primary-color);
+    margin-left: 0;
+}
+aside .side__bar a.active:before{
+    content: '';
+    background-color: var(--primary-color);
+    width: 7px;
+    height: 100%;
+}
+aside .side__bar a.active span{
+    margin-left: calc(1rem - 7px);
+    color: var(--primary-color);
+}
+aside .side__bar a:hover{
+    color: var(--primary-color);
+}
+aside .side__bar a:hover span{
+    margin-left: .5rem;
+}
+.message_count{
+    background-color: var(--danger-color);
+    padding: 0px 10px;
+    border-radius: 10px;
+    color: var(--color-white);
+    font-size: 14px!important;
+}
+/*========== main-content ==========*/
+
+.main-content{
+    margin-top: 1.4rem;
+    width: 100%;
+}
+.main-content .input_date{
+    display: inline-block;
+    background-color: var(--color-light);
+    border-radius: var(--border-radius-1);
+    margin-top: 1rem;
+    padding: .5rem 1.6rem;
+}
+.main-content .input_date input{
+    background-color: transparent;
+    color: var(--color-dark);
+    border: none;
+    outline: none;
+}
+.main-content .insights {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    width: 100%;
+}
+.insights > div{
+    background-color: var(--color-white);
+    padding: var(--card-padding);
+    border-radius: var(--card-border-radius);
+    margin-top: 1rem;
+    box-shadow: var(--box-shadow);
+    transition: all .3s ease;
+}
+.insights > div:hover{
+    box-shadow: none;
+}
+.insights > div span{
+    background-color: var(--primary-color);
+    padding: .5rem;
+    border-radius: 50%;
+    color: var(--color-white);
+    font-size: 2rem;
+}
+.insights > div.expenses span{
+    background-color: var(--danger-color);
+}
+.insights > div.income span{
+    background-color: var(--success-color);
+}
+.insights > div .mid {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.insights h3{
+    margin: 1rem 0 .6rem;
+    font-size: 1rem;
+}
+.insights .progress{
+    position: relative;
+    width: 92px;
+    height: 92px;
+    border-radius: 50%;
+}
+.insights svg{
+    width: 7rem;
+    height: 7rem;
+}
+.insights svg circle{
+    fill: none;
+    stroke: var(--primary-color);
+    stroke-width: 14;
+    stroke-linecap: round;
+    transform: translate(5px, 5px);
+}
+.insights .sales svg circle {
+    stroke-dashoffset: -30;
+    stroke-dasharray: 200;
+}
+.insights .expenses svg circle{
+    stroke-dashoffset: 20;
+    stroke-dasharray: 80;
+}
+.insights .income svg circle{
+    stroke-dashoffset: 35;
+    stroke-dasharray: 110;
+}
+.numb{
+    position: absolute;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+small{
+    margin-top: 1.4rem;
+    display: block;
+}
+
+/* ============== Recent Orders =============*/
+.main-content .recent__order{
+    margin-top: 2rem;
+}
+.main-content .recent__order h2{
+    margin-bottom: .8rem;
+}
+.main-content .recent__order table{
+    background-color: var(--color-white);
+    width: 100%;
+    border-radius: var(--card-border-radius);
+    padding: var(--card-padding);
+    box-shadow: var(--box-shadow);
+    transition: all .3s ease;
+    text-align: center;
+}
+.main-content .recent__order table:hover{
+    box-shadow: none;
+}
+.main-content .recent__order tbody td{
+    height: 2.8rem;
+    color: var(--color-dark-variant);
+    border-bottom: 1px solid var(--color-light);
+}
+.main-content .recent__order tbody tr:last-child td{
+    border: none;
+}
+.recent__order .show___all{
+    text-align: center;
+    display: block;
+    margin: 1rem auto;
+    color: var(--primary-color);
+
+}
+.recent__order .warning{
+    color: var(--color-warning)!important;
+}
+
+/*---- Right Content ----*/
+.right{
+    margin-top: 1.4rem;
+}
+.right .r_top{
+    display: flex;
+    justify-content: flex-end;
+    gap: 2rem;
+}
+.right .r_top button{
+    display: none;
+}
+.right .theme-toggler{
+    background-color: var(--color-light);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 1.6rem;
+    width: 4.2rem;
+    cursor: pointer;
+    border-radius: var(--border-radius-1);
+}
+.right .theme-toggler span{
+    font-size: 1.2rem;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: .3s;
+}
+.right .theme-toggler span.active{
+    background-color: var(--primary-color);
+    color: var(--color-white);
+    border-radius: var(--border-radius-1);
+}
+.right .r_top .profile{
+    display: flex;
+    gap: 1rem;
+    text-align: right;
+}
+.right small{
+    margin-top: 0;
+}
+/*============ Updates =============*/
+.right .recent__updates{
+    margin-top: 1rem;
+}
+.right .recent__updates h2{
+    margin-bottom: .8rem;
+}
+.right .recent__updates .updates{
+    background-color: var(--color-white);
+    padding: var(--card-padding);
+    border-radius: var(--card-border-radius);
+    box-shadow: var(--box-shadow);
+    transition: all .3s ease;
+}
+.right .recent__updates .updates:hover{
+    box-shadow: none;
+}
+.right .recent__updates .updates .__update{
+    display: grid;
+    grid-template-columns: 2.5rem auto;
+    gap: 1rem;
+    margin-bottom: 1.2rem;
+}
+
+/*=============== Sales ANALYICS ==================*/
+.right .__analys{
+    margin-top: 2rem;
+}
+.right .__analys h2{
+    margin-bottom: .8rem;
+}
+.right .__analys .item{
+    background-color: var(--color-white);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    border-radius: var(--card-border-radius);
+    padding: 1.4rem var(--card-padding);
+    box-shadow: var(--box-shadow);
+    transition: all .3s ease;
+}
+.right .__analys .item:hover{
+    box-shadow: none;
+}
+.right .__analys .anal__right{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+.right .__analys .item .icon{
+    padding: .6rem;
+    color: var(--color-white);
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    display: flex;
+}
+.right .__analys .item.offline .icon{
+    background-color: var(--danger-color);
+}
+.right .__analys .item.customers .icon{
+    background-color: var(--success-color);
+}
+.right .__analys .item.add-prod {
+    background-color: transparent;
+    border: 2px dashed var(--primary-color);
+    color: var(--primary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+/*================= MEDIA QURIES ===================*/
+@media screen and (max-width:1200px ) {
+    .container{
+        width: 94%;
+        grid-template-columns: 7rem auto 23rem;
+    }
+    aside .logo h2{
+        display: none;
+    }
+    aside .side__bar h3{
+        display: none;
+    }
+    aside .side__bar a {
+        width: 5.5rem;
+    }
+    aside .side__bar a:last-child{
+        position: relative;
+        margin-top: 1.8rem;
+    }
+
+
+    .main-content .insights{
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+    .main-content .recent__order{
+        width: 94%;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        margin: 2rem 0 0 8.8rem;
+    }
+    .main-content .recent__order table{
+        width: 82vw;
+    }
+    .main-content table thead tr th:last-child,
+    .main-content table thead tr th:first-child{
+        display: none;
+    }
+    .main-content table tbody tr td:last-child,
+    .main-content table tbody tr td:first-child{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 768px){
+    .container{
+        width: 100%;
+        grid-template-columns: 1fr;
+    }
+    aside{
+        position: fixed;
+        left: -100%;
+        background-color: var(--color-white);
+        width: 18rem;
+        z-index: 7;
+        box-shadow: 1rem 3rem 4rem var(--color-light);
+        height: 100vh;
+        padding-right: var(--card-padding);
+        transition: .3s;
+    }
+    .show_sticky{
+        left: 0
+    }
+    aside .logo{
+        margin-left: 1rem;
+    }
+    aside .logo h2{
+        display: inline-block;
+    }
+    aside .side__bar h3{
+        display: inline-block;
+    }
+    aside .side__bar a {
+        width: 100%;
+        height: 3.4rem;
+    }
+    aside .side__bar a:last-child{
+        position: absolute;
+        bottom: 5rem;
+    }
+    aside .close{
+        display: inline-block;
+        cursor: pointer;
+    }
+    .main-content{
+        padding: 1rem;
+    }
+    .main-content .recent__order{
+        position: relative;
+        margin: 1.5rem 0 0;
+        width: 100%;
+    }
+    .main-content .recent__order table{
+        width: 100%;
+    }
+    .right .recent__updates{
+        padding: 1rem;
+    }
+    .right .r_top button{
+        display: inline-block;
+        background-color: transparent;
+        outline: none;
+        border: none;
+        font-size: 2rem;
+        cursor: pointer;
+        color: var(--color-dark);
+    }
+    .right .r_top{
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: var(--color-white);
+        width: 100%;
+        padding: 0.8rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 4.6rem;
+        z-index: 5;
+        box-shadow: 0 1rem 1rem var(--color-light);
+    }
+    .right .r_top .theme-toggler{
+        position: absolute;
+        left: 50%;
+        width: 4.5rem;
+    }
+    
+}
